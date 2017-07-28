@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            // Assignment: Ninja Class III
+            // Part I
+            // Recreate the base Ninja class from scratch using ES6 classes. Your Ninja needs the following attributes:
+            //
+            // name
+            // health
+            // speed
+            // strength
+            // Speed and strength should be 3 by default. Health should be 100 by default.
+
+            class Ninja{
+                constructor(name){
+                    this.name = name;
+                    this.health = 100;
+                    this.speed = 3;
+                    this.strength = 3;
+                }
+                sayName(name){
+                    console.log("Name: " + this.name);
+                }
+                showStats(){
+                    console.log("Strength: " + this.strength + " Speed" + this.speed + " Health: " + this.health);
+                }
+                drinkSake(){
+                    this.health += 10;
+                    return this;
+                }
+            }
+
+            class Sensei extends Ninja{
+                constructor(name){
+                    super(name);
+                    this.health = 200;
+                    this.speed = 10;
+                    this.strength = 10;
+                    this.wisdom = 10;
+                }
+                drinkSake(){
+                    this.health += 10;
+                    return this;
+                }
+                speakWisdom(){
+                    super.drinkSake();
+                    console.log("Hey You're wise");
+                }
+                showStats(){
+                    console.log(`Name:${this.name}, Health: ${this.health}, Speed: ${this.speed}, Strength ${this.strength}, Wisdom: ${this.wisdom}`);
+                }
+            }
+            var ninja1 = new Ninja("Greg");
+            ninja1.sayName();
+            ninja1.showStats();
+            ninja1.drinkSake();
+            ninja1.showStats();
+            var sensei1 = new Sensei("Gman");
+            sensei1.speakWisdom();
+            sensei1.showStats();
+        </script>
+    </body>
+</html>
